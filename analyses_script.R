@@ -107,6 +107,12 @@ data = data[data$RT < 2, ]   #miss trials
 classes <- lapply(data, class)
 classes
 
+#set contrasts
+options(contrasts = c("contr.sum","contr.poly")) 
+#https://faculty.nps.edu/sebuttre/home/r/contrasts.html
+
+# check contrasts - is it set to -1 -1 -1 (poly because there is no "real" reference level)?
+contrasts(data$condition)  
 
 #sample descriptives
 {
